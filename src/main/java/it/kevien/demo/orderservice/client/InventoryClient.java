@@ -8,18 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/api/inventory")
 @FeignClient(name = "inventory-service")
 public interface InventoryClient {
 
-    @GetMapping("/{productId}")
+    @GetMapping("/api/inventory/{productId}")
     InventoryResponse findByProductId(@PathVariable Long productId);
 
-    @PatchMapping("/{productId}/decrease")
+    @PatchMapping("/api/inventory/{productId}/decrease")
     InventoryResponse decreaseInventory(@PathVariable Long productId, @RequestBody InventoryAdjustmentRequest inventoryAdjustmentRequest);
 
-    @PatchMapping("/{productId}/increase")
+    @PatchMapping("/api/inventory/{productId}/increase")
     InventoryResponse increaseInventory(@PathVariable Long productId, @RequestBody InventoryAdjustmentRequest inventoryAdjustmentRequest);
 }
