@@ -1,0 +1,26 @@
+### Get all orders
+GET {{host}}/api/orders
+
+### Get order by ID
+GET {{host}}/api/orders/1
+
+### Create order
+POST {{host}}/api/orders
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "quantity": 2
+}
+
+### Update order
+PATCH {{host}}/api/orders/1
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "quantity": 3
+}
+
+### Delete order
+DELETE {{host}}/api/orders/1
